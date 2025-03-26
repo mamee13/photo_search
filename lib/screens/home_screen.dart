@@ -5,6 +5,7 @@ import 'dart:io';
 import '../providers/search_provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../providers/theme_provider.dart';
+import 'history_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -30,6 +31,13 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Photo Search'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.history),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const HistoryScreen()),
+            ),
+          ),
           Consumer<ThemeProvider>(
             builder: (context, themeProvider, _) {
               return IconButton(
